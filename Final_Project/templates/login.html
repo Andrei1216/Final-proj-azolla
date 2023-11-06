@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <!-- Import external CSS libraries -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+    <!-- Your custom style -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- LOGIN CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css', _external=True) }}">
+    <!-- BASE CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css', _external=True) }}">
+{% endblock %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+    <body id="particles-js"></body>
+    <div class="animated bounceInDown">
+        <div class="container">
+            <span class="error animated tada" id="msg">{{ error_message }}</span>
+            <form name="form1" class="box" method="post" action="/login"> <!-- Updated form action -->
+                <h4>Admin<span>Dashboard</span></h4>
+                <input type="email" name="email" placeholder="Your email address" autocomplete="off">
+                <input type="password" name="password" placeholder="Your password" id="pwd" autocomplete="off">
+                <a href="{{ url_for('reset_password') }}">Forgot password?</a>
+                <input type="submit" value="Login" class="btn1">
+            </form>
+        </div>
+    </div>
+    
+    {% if 'logged_in' in session and session['logged_in'] %}
+    <script>
+        // Redirect to the dashboard after a successful login
+        window.location.href = "{{ url_for(''static', filename = 'templates/dashboard.html') }}";
+    </script>
+    {% endif %}
+    <!-- External JavaScript files -->
+    <script src='https://cldup.com/S6Ptkwu_qA.js'></script>
+    <script  src="./script.js"></script>
+{% endblock %}

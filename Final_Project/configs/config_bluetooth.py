@@ -1,0 +1,3 @@
+PORT = "COM5"
+BAUD_RATE = 9600
+

@@ -1,0 +1,32 @@
+1. Get the value from the sensor. In development every 5 secs but in deployment every 5 mins
+2. Send it to the HC-05 module
+3. Retrieve the data to Web server and process it.
+4. If value - 10 is less than the previous value.
+5. Store to database
+6. Else reject the value and discard
+
+RETRIEVING DATA FROM DATABASE TO USER INTERFACE
+1. Fetch the data. In development every 5 secs but in deployment every 5 mins of fetching using AJAX
+
+SCALING
+- Extremely Dry (0-20% moisture)
+- Dry (21-40% moisture)
+- Moderate (41-60% moisture)
+- Moist (61-80% moisture)
+- Wet (81-100% moisture)
+
+DATABASE TABLE
+- user
+    - id
+    - email
+    - password
+    - image
+
+- soil_info
+    - id
+    - value
+    - date and time
+
+DATABASE ATTRIBUTES
+
+
